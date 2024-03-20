@@ -7,6 +7,8 @@ import os
 
 from dotenv import load_dotenv
 
+from tkinter.filedialog import askdirectory
+
 
 
 def extract_text(img: str) -> None:
@@ -17,12 +19,27 @@ def extract_text(img: str) -> None:
     except:
         print("Image or cmd tesseract dont finded!")
     else:    
-        with open(f"contents/{img}.txt", "w") as file:
-            file.writelines(text_image)
-            file.close()
+        dir_image = "contents"
+        path = askdirectory()
+
+        if path:
+            dir_image = path
+            
+        write_txt(
+            text=text_image,
+            dir_image=dir_image,
+            img=img
+        )
+        
+def write_txt(text: str, dir_image, img) -> None:
+    """write in txt file"""
+    with open(f"{dir_image}/{img}.txt", "w") as file:
+        file.writelines(text)
+        file.close()
+
 
 
 if __name__ == '__main__':
     load_dotenv()
 
-    extract_text("img1")
+    extract_text("img2")
