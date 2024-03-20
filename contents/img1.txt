@@ -1,0 +1,22 @@
+O & aN ED da Se 22 AN
+
+ASIDE MARES
+
+aw
+
+SDK, ou kit de desenvolvimento de
+software, 6 um conjunto de ferramentas
+oferecidas a desenvolvedores por
+fornecedores de sistemas operacionais e
+linguagens de programacao. Ele é
+disponibilizado para facilitar a criagao e
+integragao de aplicativos em uma
+determinada plataforma.
+
+Os SDKs trazem documentacées,
+bibliotecas de cddigos, editores visuais
+e guias, que podem ser usados para
+agilizar o processo de desenvolvimento.
+Alguns também entregam um projeto de
+teste para eliminar a necessidade de
+escrever 0 codigo do zero.
