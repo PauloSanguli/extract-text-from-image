@@ -11,35 +11,36 @@ from tkinter.filedialog import askdirectory
 
 
 
-def extract_text(img: str) -> None:
-    """read text"""
-    try:
-        pytesseract.pytesseract.tesseract_cmd = os.getenv("PATH-TESSERACT")
-        text_image = pytesseract.image_to_string(Image.open(f"{PATH}\{img}.jpg"))
-    except:
-        print("Image or cmd tesseract dont finded!")
-    else:    
-        dir_image = "contents"
-        path = askdirectory()
 
-        if path:
-            dir_image = path
+class ProcessImage:
+    @staticmethod
+    def extract_text(img: str) -> None:
+        """read text"""
+        try:
+            pytesseract.pytesseract.tesseract_cmd = os.getenv("PATH-TESSERACT")
+            print(f"[INFO]: EXTRATING TEXT FROM IMAGE NAME '{img}'...")
+            text_image = pytesseract.image_to_string(Image.open(f"{PATH}\{img}.jpg"))
+        except:
+            print("Image or cmd tesseract dont finded!")
+        else:    
+            ProcessImage.write_txt(
+                text=text_image,
+                dir_image="contents",
+                img=img
+            )
             
-        write_txt(
-            text=text_image,
-            dir_image=dir_image,
-            img=img
-        )
-        
-def write_txt(text: str, dir_image, img) -> None:
-    """write in txt file"""
-    with open(f"{dir_image}/{img}.txt", "w") as file:
-        file.writelines(text)
-        file.close()
+    @staticmethod
+    def write_txt(text: str, dir_image, img) -> None:
+        """write in txt file"""
+        with open(f"{dir_image}/{img}.txt", "w") as file:
+            file.writelines(text)
+            file.close()
+        print("[INFO]: TEXT EXTRACTED WITH SUCESS AND SAVED!")
+        print(f"[INFO]: TEXT EXTRACTED SAVED IN '{dir_image.upper()}'")
 
 
 
 if __name__ == '__main__':
     load_dotenv()
 
-    extract_text("img2")
+    ProcessImage.extract_text(img="img3")

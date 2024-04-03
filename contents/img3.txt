@@ -1,0 +1,12 @@
+1. CREATE TABLE
+
+O comando CREATE TABLE é usado para criar
+uma nova tabela, especificando os nomes
+das colunas e seus tipos de dados.
+
+CREATE TABLE produtes (
+id INT PRIMARY KEY,
+nome VARCHAR(5O),
+preco DECI AL(IO, 2)
+
+F
